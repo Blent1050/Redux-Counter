@@ -12,18 +12,26 @@ class Counter extends Component {
         // Stretch Problem: Implement an increment function that
         // increments after waiting for one second
     };
-
+    add = (e, count) => {
+        e.preventDefault();
+        this.props.increment(count);
+    }
+    subtract = (e, count) => {
+        e.preventDefault();
+        this.props.decrement(count);
+    }
     render() {
+        console.log('Counter.js ',this.props)
         // Fill in the two button onClick methods
         // Upon clicking these buttons, the count
         // should decrement or increment accordingly
         return (
             <p>
                 Clicked: {this.props.count} times
-                <button onClick={() => /* Fill me in */ }>
+                <button onClick={e => this.add(e, this.props.count) }>
                     +
                 </button>
-                <button onClick={() => /* Fill me in */ }>
+                <button onClick={e => this.subtract(e, this.props.count) }>
                     -
                 </button>
                  {/* Uncomment these button tags if you got
